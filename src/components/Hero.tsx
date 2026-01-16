@@ -4,48 +4,69 @@ import { FadeInSection } from './FadeIn';
 
 const Hero = () => {
     return (
-        <section id="hero" style={{ height: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+        <section id="hero" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
+            {/* New Background: Abstract shapes instead of single pulse */}
             <div style={{
                 position: 'absolute',
-                top: '50%',
-                right: '-10%',
-                width: '600px',
-                height: '600px',
-                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%)',
-                opacity: 0.4,
-                filter: 'blur(80px)',
+                top: '-10%',
+                left: '-10%',
+                width: '50vw',
+                height: '50vw',
+                background: 'radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, transparent 60%)',
+                filter: 'blur(60px)',
                 zIndex: 1,
-                animation: 'pulse 10s infinite alternate'
+            }}></div>
+            <div style={{
+                position: 'absolute',
+                bottom: '-10%',
+                right: '-10%',
+                width: '50vw',
+                height: '50vw',
+                background: 'radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 60%)',
+                filter: 'blur(60px)',
+                zIndex: 1,
             }}></div>
 
-            <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '900px' }}>
                 <FadeInSection>
-                    <span style={{ color: '#14b8a6', fontWeight: 600, marginBottom: '1rem', display: 'block', letterSpacing: '0.1em', textTransform: 'uppercase', fontSize: '0.9rem' }}>
-                        Hello, I'm {userData.name}
-                    </span>
-                    <h1 style={{ marginBottom: '1.5rem' }}>
-                        Designing the Future of <br /> <span style={{ background: 'var(--gradient-text)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Intelligent Systems</span>
+                    <div style={{
+                        display: 'inline-block',
+                        padding: '8px 16px',
+                        borderRadius: '50px',
+                        background: 'rgba(20, 184, 166, 0.1)',
+                        border: '1px solid rgba(20, 184, 166, 0.2)',
+                        marginBottom: '1.5rem',
+                        backdropFilter: 'blur(5px)'
+                    }}>
+                        <span style={{ color: '#14b8a6', fontWeight: 600, letterSpacing: '0.05em', fontSize: '0.9rem' }}>
+                            HELLO, I'M {userData.name}
+                        </span>
+                    </div>
+
+                    <h1 style={{ marginBottom: '1.5rem', lineHeight: '1.1' }}>
+                        Designing the Future of <br />
+                        <span style={{
+                            background: 'linear-gradient(to right, #2dd4bf, #0ea5e9)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent'
+                        }}>
+                            Intelligent Systems
+                        </span>
                     </h1>
-                    <p style={{ fontSize: '1.125rem', maxWidth: '600px', marginBottom: '2rem' }}>
+
+                    <p style={{ fontSize: '1.25rem', maxWidth: '700px', margin: '0 auto 2.5rem auto', lineHeight: '1.6' }}>
                         {userData.summary}
                     </p>
-                    <div>
+
+                    <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                         <a href="#projects" className="btn btn-primary">View My Work</a>
-                        {/* 
-                        <a href={userData.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ marginLeft: '15px' }}>
+                        <a href={userData.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                             <i className="fas fa-download" style={{ marginRight: '8px' }}></i>Resume
-                        </a> 
-                        */}
+                        </a>
+                        <a href="#contact" className="btn btn-secondary">Contact Me</a>
                     </div>
                 </FadeInSection>
             </div>
-
-            <style>{`
-                @keyframes pulse {
-                    0% { transform: scale(1); opacity: 0.4; }
-                    100% { transform: scale(1.2); opacity: 0.2; }
-                }
-            `}</style>
         </section>
     );
 };

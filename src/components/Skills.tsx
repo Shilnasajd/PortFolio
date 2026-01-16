@@ -3,55 +3,40 @@ import { userData } from '../data';
 import { FadeInSection } from './FadeIn';
 
 const Skills = () => {
-    // Helper to map skill names to icons (simple mapping for now)
-    const getIcon = (skill: string) => {
-        const lower = skill.toLowerCase();
-        if (lower.includes('react')) return 'fab fa-react';
-        if (lower.includes('js') || lower.includes('script')) return 'fab fa-js';
-        if (lower.includes('node')) return 'fab fa-node';
-        if (lower.includes('python')) return 'fab fa-python';
-        if (lower.includes('database') || lower.includes('sql') || lower.includes('mongo')) return 'fas fa-database';
-        if (lower.includes('docker')) return 'fab fa-docker';
-        if (lower.includes('aws') || lower.includes('cloud')) return 'fas fa-cloud';
-        if (lower.includes('git')) return 'fab fa-git-alt';
-        if (lower.includes('css') || lower.includes('tailwind')) return 'fab fa-css3-alt';
-        return 'fas fa-code';
-    };
-
-    const getColor = (skill: string) => {
-        const lower = skill.toLowerCase();
-        if (lower.includes('react')) return '#61dafb';
-        if (lower.includes('js')) return '#f7df1e';
-        if (lower.includes('node')) return '#339933';
-        if (lower.includes('python')) return '#3776ab';
-        if (lower.includes('mongo')) return '#4db33d';
-        if (lower.includes('docker')) return '#2496ed';
-        if (lower.includes('aws')) return '#ff9900';
-        return '#ffffff';
-    }
-
     return (
-        <section id="skills" className="section" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <section id="skills" className="section" style={{ background: 'transparent' }}>
             <div className="container">
                 <FadeInSection>
-                    <h2 style={{ textAlign: 'center' }}>Skills & Expertise</h2>
+                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                        <h2>Skills & Expertise</h2>
+                        <p style={{ maxWidth: '600px', margin: '1rem auto' }}>
+                            A comprehensive toolkit for building modern, scalable AI and Web solutions.
+                        </p>
+                    </div>
+
                     <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-                        gap: '20px',
-                        marginTop: '3rem'
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        gap: '15px',
+                        maxWidth: '900px',
+                        margin: '0 auto'
                     }}>
                         {userData.skills.map((skill, idx) => (
-                            <div key={idx} className="skill-card" style={{
-                                background: 'rgba(23, 23, 23, 0.6)',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                padding: '20px',
-                                borderRadius: '12px',
-                                textAlign: 'center',
-                                transition: '0.3s'
+                            <div key={idx} className="skill-pill" style={{
+                                padding: '12px 24px',
+                                background: 'rgba(30, 41, 59, 0.6)',
+                                border: '1px solid rgba(148, 163, 184, 0.1)',
+                                borderRadius: '50px',
+                                fontSize: '1rem',
+                                color: '#f1f5f9',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '10px',
+                                transition: 'all 0.3s ease',
+                                cursor: 'default'
                             }}>
-                                <i className={getIcon(skill)} style={{ fontSize: '2rem', marginBottom: '10px', color: getColor(skill) }}></i>
-                                <h4>{skill}</h4>
+                                <span style={{ color: '#14b8a6' }}>#</span> {skill}
                             </div>
                         ))}
                     </div>
@@ -59,9 +44,11 @@ const Skills = () => {
             </div>
 
             <style>{`
-                .skill-card:hover {
-                    border-color: #3b82f6 !important;
-                    transform: translateY(-5px);
+                .skill-pill:hover {
+                    background: rgba(20, 184, 166, 0.15) !important;
+                    border-color: #14b8a6 !important;
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1);
                 }
             `}</style>
         </section>
