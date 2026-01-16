@@ -71,7 +71,7 @@ export const userData: UserData = {
         social: [
             {
                 name: "GitHub",
-                url: "https://github.com/Shilnasaj",
+                url: "https://github.com/Shilnasajd",
                 icon: "fab fa-github",
             },
             {

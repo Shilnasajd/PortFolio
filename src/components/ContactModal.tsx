@@ -11,24 +11,24 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     if (!isOpen) return null;
 
     const [formState, setFormState] = useState({
-        "entry.413164985": '', // Name
-        "entry.531310106": '', // Email
-        "entry.1600825252": ''  // Message
+        "entry.1173627639": '', // Name
+        "entry.1885518774": '', // Email
+        "entry.1399685950": ''  // Message
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7WFVlZyqZwIffDXWWWbP8HIvG69f1AnXjS2Z3Oq5Do4snGA/formResponse";
+    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfK2sp0Mo3cnMMNp_zvCURfe2omnZmP2laWHnT3OQV0ZlWU8A/formResponse";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
         const formData = new FormData();
-        formData.append("entry.413164985", formState["entry.413164985"]);
-        formData.append("entry.531310106", formState["entry.531310106"]);
-        formData.append("entry.1600825252", formState["entry.1600825252"]);
+        formData.append("entry.1173627639", formState["entry.1173627639"]);
+        formData.append("entry.1885518774", formState["entry.1885518774"]);
+        formData.append("entry.1399685950", formState["entry.1399685950"]);
 
         try {
             await fetch(GOOGLE_FORM_ACTION_URL, {
@@ -38,9 +38,9 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
             });
             setIsSuccess(true);
             setFormState({
-                "entry.413164985": '',
-                "entry.531310106": '',
-                "entry.1600825252": ''
+                "entry.1173627639": '',
+                "entry.1885518774": '',
+                "entry.1399685950": ''
             });
         } catch (error) {
             console.error("Error submitting form", error);
@@ -125,9 +125,9 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                                 <label style={{ display: 'block', marginBottom: '8px', color: '#a3a3a3', fontSize: '0.9rem' }}>Name</label>
                                 <input
                                     type="text"
-                                    name="entry.413164985"
+                                    name="entry.1173627639"
                                     required
-                                    value={formState["entry.413164985"]}
+                                    value={formState["entry.1173627639"]}
                                     onChange={handleChange}
                                     style={{
                                         width: '100%',
@@ -145,9 +145,9 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                                 <label style={{ display: 'block', marginBottom: '8px', color: '#a3a3a3', fontSize: '0.9rem' }}>Email</label>
                                 <input
                                     type="email"
-                                    name="entry.531310106"
+                                    name="entry.1885518774"
                                     required
-                                    value={formState["entry.531310106"]}
+                                    value={formState["entry.1885518774"]}
                                     onChange={handleChange}
                                     style={{
                                         width: '100%',
@@ -164,10 +164,10 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                             <div>
                                 <label style={{ display: 'block', marginBottom: '8px', color: '#a3a3a3', fontSize: '0.9rem' }}>Message</label>
                                 <textarea
-                                    name="entry.1600825252"
+                                    name="entry.1399685950"
                                     required
                                     rows={4}
-                                    value={formState["entry.1600825252"]}
+                                    value={formState["entry.1399685950"]}
                                     onChange={handleChange}
                                     style={{
                                         width: '100%',
