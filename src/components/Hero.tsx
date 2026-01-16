@@ -58,13 +58,28 @@ const Hero = () => {
                         {userData.summary}
                     </p>
 
-                    <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                    <div
+                        className="hero-buttons"
+                        style={{
+                            display: 'flex',
+                            gap: '16px',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap',
+                        }}
+                    >
                         <a href="#projects" className="btn btn-primary">View My Work</a>
-                        <a href={userData.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                            <i className="fas fa-download" style={{ marginRight: '8px' }}></i>Resume
+                        <a
+                            href={userData.resumeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary"
+                        >
+                            <i className="fas fa-download" style={{ marginRight: '8px' }}></i>
+                            Resume
                         </a>
                         <a href="#contact" className="btn btn-secondary">Contact Me</a>
                     </div>
+
                 </FadeInSection>
             </div>
         </section>
